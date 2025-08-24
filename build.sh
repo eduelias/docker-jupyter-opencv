@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-docker build . -t eduelias/jupyter
+docker build . -t eduelias/docker-jupyter-opencv

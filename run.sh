@@ -3,6 +3,6 @@
 docker run \
  --name jupyter \
  -p 8888:8888 \
- -v [host-dir]:[container-dir]:rw \
+ -v /:/host:ro \ 
  -e TZ=Europe/Amsterdam \
- -d eduelias/jupyter
+ -d eduelias/docker-jupyter-opencv
