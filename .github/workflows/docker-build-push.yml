@@ -20,18 +20,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Make build.sh executable
-        run: chmod +x ./build.sh
-
-      - name: Build Docker image using build.sh
-        run: | 
-          docker build -t eduelias/docker-jupyter-opencv:latest .
-
-      - name: Tag Docker image
-        run: |
-          docker tag eduelias/docker-jupyter-opencv:latest
-
-      - name: Push Docker image
-        run: |
-          docker push eduelias/docker-jupyter-opencv:latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            eduelias/docker-jupyter-opencv:latest
+            eduelias/docker-jupyter-opencv:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
