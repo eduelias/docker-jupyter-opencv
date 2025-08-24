@@ -25,14 +25,13 @@ jobs:
         run: chmod +x ./build.sh
 
       - name: Build Docker image using build.sh
-        run: ./build.sh
+        run: | 
+          docker build -t eduelias/docker-jupyter-opencv:latest .
 
       - name: Tag Docker image
         run: |
-          IMAGE_NAME="${{ secrets.DOCKERHUB_USERNAME }}/docker-jupyter-opencv:latest"
-          docker tag docker-jupyter-opencv "$IMAGE_NAME"
+          docker tag eduelias/docker-jupyter-opencv:latest
 
       - name: Push Docker image
         run: |
-          IMAGE_NAME="${{ secrets.DOCKERHUB_USERNAME }}/docker-jupyter-opencv:latest"
-          docker push "$IMAGE_NAME"
+          docker push eduelias/docker-jupyter-opencv:latest
