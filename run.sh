@@ -4,5 +4,5 @@ docker run \
  --name jupyter \
  -p 8888:8888 \
  -v /:/host:ro \
- -e TZ=Europe/Amsterdam \
+ -e TZ=America/Sao_Paulo \
  -d eduelias/docker-jupyter-opencv
