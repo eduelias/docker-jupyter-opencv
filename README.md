@@ -24,20 +24,32 @@ chmod +x run.sh
 
 ### On Windows
 
-Download the batch file:
+You can download the `run.bat` script using either PowerShell or Command Prompt.
 
-```bat
-wget https://raw.githubusercontent.com/eduelias/docker-jupyter-opencv/refs/heads/main/run.bat
+#### **Using PowerShell**
+
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/eduelias/docker-jupyter-opencv/refs/heads/main/run.bat" -OutFile "run.bat"
 ```
 
-Or manually download `run.bat` from the repository.
+#### **Using Command Prompt (CMD) with PowerShell**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/eduelias/docker-jupyter-opencv/refs/heads/main/run.bat' -OutFile 'run.bat'"
+```
+
+#### **Using Command Prompt (CMD) with curl (Windows 10 and later)**
+
+```cmd
+curl -o run.bat https://raw.githubusercontent.com/eduelias/docker-jupyter-opencv/refs/heads/main/run.bat
+```
 
 Then, double-click `run.bat` or run it from the Command Prompt:
 
 ```bat
-run.bat
+.\run.bat
 ```
-
+*Notice the `.\` is required, and you should run this inside the folder you downloaded the .bat*
 
 ## Other instructions
 
