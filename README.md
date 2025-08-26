@@ -58,3 +58,23 @@ Then, double-click `run.bat` or run it from the Command Prompt:
 To customize the mounted folder, just change the `-v` option to the right folder you want.
 1. On windows, change the `.bat`file, where it has `C:` to `C:\Documents` for instance, and it'll mount just the Documents folder.
 2. On MAC/linux, change the `.sh` file, where the first `/` to `/User/admin` to mount the content of the admin user's folder.
+
+### How to get the token
+
+Just run the command:
+```bash
+docker logs jupyter
+```
+
+and it should return something like this
+```bash
+...
+    To access the notebook, open this file in a browser:
+        file:///home/thiago/.local/share/jupyter/runtime/nbserver-1-open.html
+    Or copy and paste one of these URLs:
+        http://d9d14d01734a:8888/?token=8972f3ed8fc41bcfd101d4d8750f28e321e41c87d8202537
+     or http://127.0.0.1:8888/?token=8972f3ed8fc41bcfd101d4d8750f28e321e41c87d8202537
+...
+```
+
+Then, just copy the `http://127.0.0.1:8888/?token=xxxxx` part and paste it into your browser.
